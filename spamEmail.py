@@ -52,3 +52,13 @@ def classify_email(email):
     else:
         return "spam"
 
+# Test the classifier
+new_emails = [
+    "You won a free iPhone! Click here to claim.",
+    "Meeting rescheduled for tomorrow at 3 PM.",
+    "Urgent: Please wire me $1000.",
+    "Claim Now! Free Iphone"
+]
+
+for email in new_emails:
+    print(email, "->", classify_email(email))
