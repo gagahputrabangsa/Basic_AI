@@ -43,3 +43,12 @@ classifier = Pipeline([
 # Train the classifier
 classifier.fit(X_train, y_train)
 
+# Function to classify a new email
+def classify_email(email):
+    preprocessed_email = preprocess_email(email)
+    prediction = classifier.predict([preprocessed_email])[0]
+    if prediction == 0:
+        return "not spam"
+    else:
+        return "spam"
+
