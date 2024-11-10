@@ -23,3 +23,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
+
+model = Sequential()
+model.add(Dense(5, input_dim=4, activation='sigmoid'))  # Hidden Layer
+model.add(Dense(1, activation='sigmoid'))  # Output Layer
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
