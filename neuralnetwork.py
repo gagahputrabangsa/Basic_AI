@@ -31,10 +31,7 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 
 model.fit(X_train, y_train, epochs=100, batch_size=5, verbose=1)
 
-
-
 y_pred = (model.predict(X_test) > 0.5).astype(int)
-
 
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Akurasi model: {accuracy * 100:.2f}%")
