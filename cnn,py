@@ -30,3 +30,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 
 # Train model
 model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test))
+
+# Eval model
+loss, accuracy = model.evaluate(x_test, y_test)
+print(f'Akurasi: {accuracy * 100:.2f}%')
