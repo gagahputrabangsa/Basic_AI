@@ -33,3 +33,8 @@ print(f"Cross-Validation Accuracy: {scores.mean() * 100:.2f}%")
 
 # Train on all data for demonstration
 classifier.fit(X, labels)
+
+# Test with new data
+new_texts = ["I love it!", "This is awful.", "Quite good, I am happy with it.", "Not worth the price."]
+new_texts_vectorized = vectorizer.transform(new_texts)
+predictions = classifier.predict(new_texts_vectorized)
