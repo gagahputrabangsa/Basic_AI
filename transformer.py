@@ -38,3 +38,8 @@ classifier.fit(X, labels)
 new_texts = ["I love it!", "This is awful.", "Quite good, I am happy with it.", "Not worth the price."]
 new_texts_vectorized = vectorizer.transform(new_texts)
 predictions = classifier.predict(new_texts_vectorized)
+
+# Display predictions
+for text, prediction in zip(new_texts, predictions):
+    print(f"Text: {text} -> Sentiment: {prediction}")
+    
