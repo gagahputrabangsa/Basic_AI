@@ -26,3 +26,10 @@ texts, labels = zip(*data)
 # Preprocess the text data
 vectorizer = CountVectorizer(stop_words=stop_words)
 X = vectorizer.fit_transform(texts)
+# Train a simple Naive Bayes classifier using Cross-Validation for small datasets
+classifier = MultinomialNB()
+scores = cross_val_score(classifier, X, labels, cv=5)  # 5-fold cross-validation
+print(f"Cross-Validation Accuracy: {scores.mean() * 100:.2f}%")
+
+# Train on all data for demonstration
+classifier.fit(X, labels)
