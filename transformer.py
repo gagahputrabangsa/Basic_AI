@@ -20,3 +20,9 @@ data = [
     ("I would buy this again, it's great!", "positive"),
     ("It broke after one use, very bad quality.", "negative")
 ]
+# Separate the dataset into text and labels
+texts, labels = zip(*data)
+
+# Preprocess the text data
+vectorizer = CountVectorizer(stop_words=stop_words)
+X = vectorizer.fit_transform(texts)
