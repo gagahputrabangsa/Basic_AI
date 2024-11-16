@@ -14,3 +14,9 @@ def translate_to_english(text, source_lang="id", target_lang="en"):
 
     # decode result
     translated_text = tokenizer.decode(translated[0], skip_special_tokens=True)
+    return translated_text
+
+# usage
+text = "Selamat pagi, bagaimana kabarmu hari ini?"
+translated_text = translate_to_english(text)
+print(f"Terjemahan: {translated_text}")
