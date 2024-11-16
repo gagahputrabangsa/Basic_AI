@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from transformers import pipeline
 def get_article_content(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -16,3 +17,13 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)  # remove extra space  
     text = re.sub(r'\[.*?\]', '', text)  # remove ()
     return text.strip()
+
+
+
+# Creating QnA Model
+qa_pipeline = pipeline("question-answering")
+
+def answer_question(article_content, question):
+    # using pipeline to answer the Q
+    result = qa_pipeline(question=question, context=article_content)
+    return result['answer']
