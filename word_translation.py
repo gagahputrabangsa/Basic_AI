@@ -9,3 +9,8 @@ def translate_to_english(text, source_lang="id", target_lang="en"):
 
     # Tokenize input text
     translated = tokenizer(text, return_tensors="pt", padding=True)
+    # translating
+    translated = model.generate(**translated)
+
+    # decode result
+    translated_text = tokenizer.decode(translated[0], skip_special_tokens=True)
