@@ -12,7 +12,6 @@ def get_article_content(url):
 
     return content
 
-
 def clean_text(text):
     text = re.sub(r'\s+', ' ', text)  # remove extra space  
     text = re.sub(r'\[.*?\]', '', text)  # remove ()
@@ -28,11 +27,11 @@ def answer_question(article_content, question):
     result = qa_pipeline(question=question, context=article_content)
     return result['answer']
 def main(url, question):
-    # Mengambil konten dari link
+    # retrieving content from the article
     article_content = get_article_content(url)
-    # Membersihkan konten artikel
+    # cleaning retrieved content
     clean_content = clean_text(article_content)
-    # Menjawab pertanyaan
+    # answering question
     answer = answer_question(clean_content, question)
 
     return answer
