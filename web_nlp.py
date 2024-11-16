@@ -11,3 +11,8 @@ def get_article_content(url):
 
     return content
 
+
+def clean_text(text):
+    text = re.sub(r'\s+', ' ', text)  # remove extra space  
+    text = re.sub(r'\[.*?\]', '', text)  # remove ()
+    return text.strip()
