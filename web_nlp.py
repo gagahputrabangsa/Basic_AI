@@ -27,3 +27,13 @@ def answer_question(article_content, question):
     # using pipeline to answer the Q
     result = qa_pipeline(question=question, context=article_content)
     return result['answer']
+def main(url, question):
+    # Mengambil konten dari link
+    article_content = get_article_content(url)
+    # Membersihkan konten artikel
+    clean_content = clean_text(article_content)
+    # Menjawab pertanyaan
+    answer = answer_question(clean_content, question)
+
+    return answer
+
