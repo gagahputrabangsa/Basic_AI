@@ -5,3 +5,15 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 # Opening Webcam
 cap = cv2.VideoCapture(0)
+
+if not cap.isOpened():
+    print("Error: Tidak dapat membuka kamera.")
+    exit()
+
+while True:
+    # reading the frame
+    ret, frame = cap.read()
+
+    if not ret:
+        print("Gagal membaca frame dari kamera.")
+        break
