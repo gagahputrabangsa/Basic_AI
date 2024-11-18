@@ -17,3 +17,8 @@ while True:
     if not ret:
         print("Gagal membaca frame dari kamera.")
         break
+    # Changin read image into grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # reading the face throughout the webcam
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
