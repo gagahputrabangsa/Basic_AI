@@ -33,3 +33,6 @@ while True:
     # shortcut for quit the program (using q)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+# running and closing the program
+cap.release()
+cv2.destroyAllWindows()
