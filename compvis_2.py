@@ -53,3 +53,10 @@ while True:
         # Display gender and age on the frame
         label = f"{gender}, {age}"
         cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+
+    # Show the frame
+    cv2.imshow('Gagah Putra B', frame)
+
+    # Press 'q' to exit the loop
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
