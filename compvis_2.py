@@ -10,3 +10,17 @@ gender_net = cv2.dnn.readNetFromCaffe('gender_deploy.prototxt', 'gender_net.caff
 
 age_list = ['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
 gender_list = ['Male', 'Female']
+
+cap = cv2.VideoCapture(0)
+
+if not cap.isOpened():
+    print("Error: Tidak dapat membuka kamera.")
+    exit()
+
+while True:
+    # Read frame from webcam
+    ret, frame = cap.read()
+
+    if not ret:
+        print("Gagal membaca frame dari kamera.")
+        break
