@@ -60,3 +60,7 @@ while True:
     # Press 'q' to exit the loop
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+# Release resources and close windows
+cap.release()
+cv2.destroyAllWindows()
