@@ -50,3 +50,6 @@ while True:
         age_net.setInput(blob)
         age_preds = age_net.forward()
         age = age_list[age_preds[0].argmax()]
+        # Display gender and age on the frame
+        label = f"{gender}, {age}"
+        cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
